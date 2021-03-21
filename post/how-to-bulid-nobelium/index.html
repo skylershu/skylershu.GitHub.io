@@ -1,0 +1,272 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Nobelium 部署指南 | Skyler Shu</title>
+
+<link rel="shortcut icon" href="https://blog.skylershu.com/favicon.ico?v=1616295400623">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.skylershu.com/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-602X53LHVF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-602X53LHVF');
+    </script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            Skyler Shu
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            Home
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            Tags
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/about" class="menu gt-a-link">
+                            About
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1616295400623" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Nobelium 部署指南
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2021-03-17 ·
+                    </time>
+                    
+                        <a href="https://blog.skylershu.com/tag/nobelium/" class="post-tags">
+                            # nobelium
+                        </a>
+                    
+                        <a href="https://blog.skylershu.com/tag/notion/" class="post-tags">
+                            # Notion
+                        </a>
+                    
+                        <a href="https://blog.skylershu.com/tag/blog/" class="post-tags">
+                            # Blog
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>Nobelium 是一个使用 Next.js + Notion 第三方 API 实现的，部署在 Vercel 上的静态博客系统。<br>
+🔗 演示地址：<a href="https://nobelium.vercel.app/">https://nobelium.vercel.app/</a></p>
+<!-- more -->
+<h2 id="这个东西啊excited"><strong>这个东西啊，Excited!</strong></h2>
+<ul>
+<li>部署在 Vercel，配合 NextJS，实现超快的响应速度</li>
+<li>使用 NextJS 实现，配合 ISG，更新 Notion 文章无需重新部署</li>
+<li>使用 Tailwind CSS 实现样式，方便二次定制</li>
+<li>响应式设计，移动端友好</li>
+<li>支持搜索，单独筛选页面</li>
+<li>Tag 标签、RSS feed… 还有更多！</li>
+</ul>
+<h2 id="一-准备工作">一. 准备工作</h2>
+<ul>
+<li>Notion 账号</li>
+<li>GitHub 账号</li>
+<li>Vercel 账号</li>
+<li>一个域名（非必需）</li>
+</ul>
+<h2 id="二-部署流程">二. 部署流程</h2>
+<h3 id="1-duplicate-模版获取-page-id">1. Duplicate 模版，获取 Page ID</h3>
+<p>在 Notion 中 <code>Duplicate</code> 此  <a href="https://www.notion.so/68be9021bca34b8e89f0246f27e608df?v=6f4262c569494be3bf211168b9789081">Notion 模版</a>，并打开 <code>Share to web</code> ，然后 <code>Copy link</code> 保存下来，待会要用。</p>
+<p>例如，我 <code>Copy link</code> 后保存下来的为：</p>
+<p><code>https://www.notion.so/skylershu/f7ac6993a72e413f871b6ce4bb96d603?v=7672ba01dbcc4e188895816f975db6c1</code>，其中 <code>f7ac6993a72e413f871b6ce4bb96d603</code> 为 Page ID。</p>
+<figure data-type="image" tabindex="1"><img src="https://blog.skylershu.com/post-images/1616293475905.png" alt="" loading="lazy"></figure>
+<h3 id="2-在-github-中-fork-此-repository修改以下内容">2. 在 GitHub 中 <code>Fork</code> <a href="https://github.com/craigary/nobelium">此 repository</a>，修改以下内容。</h3>
+<ol>
+<li>修改 <code>blog.config.js</code> 文件。</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://blog.skylershu.com/post-images/1616293493855.png" alt="" loading="lazy"></figure>
+<p>按照注释提示修改引号中的内容，其余保持默认即可。</p>
+<pre><code class="language-jsx">const BLOG = {
+  title: 'CRAIGARY', // 标题
+  author: 'Craig Hart', // 作者
+  email: 'i@craigary.net', // 邮箱
+  link: 'https://nobelium.vercel.app', // 填入域名
+  description: 'This gonna be an awesome website.', // 博客描述
+  lang: 'en-US',
+  path: '', // leave this empty unless you want to deploy Nobelium in a folder
+  since: 2021, // 建站年份
+  postsPerPage: 7,
+  showAbout: true, // WIP
+  showArchive: true, // WIP
+  socialLink: 'https://twitter.com/craigaryhart', // 社交链接
+  seo: {
+    keywords: ['Blog', 'Website', 'Notion'],
+    googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
+  }, 
+  notionPageId: process.env.NOTION_PAGE_ID,
+  comment: { // support provider: gitalk
+    provider: '', // leave it empty if you don't need any comment plugin
+    gitalkConfig: {
+      repo: '', // The repository of store comments
+      owner: '',
+      admin: [],
+      clientID: '',
+      clientSecret: '',
+      distractionFreeMode: false
+    }
+  }
+}
+
+export default BLOG
+</code></pre>
+<ol start="2">
+<li>修改 <code>/public</code> 文件夹下的头像。</li>
+</ol>
+<p>你可以将图片文件下载后使用 Photoshop 等导出对应大小、格式的图片文件，然后上传回 GitHub。</p>
+<figure data-type="image" tabindex="3"><img src="https://blog.skylershu.com/post-images/1616293508903.png" alt="" loading="lazy"></figure>
+<h3 id="3-部署到-vercel">3. 部署到 Vercel。</h3>
+<p>前往 <a href="http://vercel.com">vercel.com</a> 登录，在 dashboard 点击 <code>New Project</code>，然后 <code>Import Git Repository</code> 从 GitHub 导入。</p>
+<figure data-type="image" tabindex="4"><img src="https://blog.skylershu.com/post-images/1616293522042.png" alt="" loading="lazy"></figure>
+<p><code>Select</code> 自己的账号。</p>
+<figure data-type="image" tabindex="5"><img src="https://blog.skylershu.com/post-images/1616293532387.png" alt="" loading="lazy"></figure>
+<p>这里需要填写环境变量 <code>Environment Variables</code>：</p>
+<ul>
+<li>NAME 填写<code>NOTION_PAGE_ID</code></li>
+<li>VALUE 填写之前获取的 Page ID。</li>
+</ul>
+<figure data-type="image" tabindex="6"><img src="https://blog.skylershu.com/post-images/1616293540952.png" alt="" loading="lazy"></figure>
+<p>点击 <code>Add</code> 后 VALUE 会自动加密，然后点击 <code>Deploy</code> 等待完成即可。当看到以下页面即部署成功。</p>
+<figure data-type="image" tabindex="7"><img src="https://blog.skylershu.com/post-images/1616293548454.gif" alt="" loading="lazy"></figure>
+<h3 id="4-自定义域名">4. 自定义域名</h3>
+<p>如果你有自己的域名的话，可以在 Vercel Project 的 <code>Settings</code> &gt; <code>Domains</code> 添加域名。</p>
+<figure data-type="image" tabindex="8"><img src="https://blog.skylershu.com/post-images/1616293558719.png" alt="" loading="lazy"></figure>
+<p>然后在域名后台添加一条 DNS 记录：</p>
+<ul>
+<li>名称填写 <code>@</code> 或自定义一个二级域名</li>
+<li>Value 填写 <code>cname.vercel-dns.com</code></li>
+</ul>
+<p>Vercel 会自动生成 SSL 证书，访问域名即可。</p>
+<h3 id="enjoy">Enjoy！</h3>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://blog.skylershu.com/post/about/" class="post-title gt-a-link">
+                    关于
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">Keep thinking</div>
+    <div class="social-container">
+        
+            
+                <a href="https://github.com/skylershu" target="_blank">
+                    <i class="fab fa-github gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+                <a href="https://twitter.com/realSkylerShu" target="_blank">
+                    <i class="fab fa-twitter gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        
+    </div>
+    <div>
+        Copyright © 2020-2021 <a href="https://blog.skylershu.com/">SkylerShu. </a>All rights reserved.</a>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">Total visits <span id="busuanzi_value_site_pv"></span> times. | </span>
+        <a href="https://blog.skylershu.com/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

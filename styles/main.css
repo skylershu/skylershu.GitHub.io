@@ -368,6 +368,17 @@ ul li {
 }
 .gt-post-content a {
   transition: all 0.3s;
+  border-bottom: 1px solid #00A2FF;
+  color: #202020 !important;
+  cursor: pointer;
+}
+.gt-post-content a:hover {
+  color: #202020;
+  cursor: pointer;
+  border-bottom: 1.5px solid;
+  border-color: #00A2FF;
+  opacity: 0.7;
+  transition: border-color 100ms ease-in, opacity 100ms ease-in;
 }
 .gt-post-content img {
   display: block;
@@ -425,9 +436,11 @@ ul li {
 }
 .gt-post-content h1 {
   font-size: 28px;
+  background: transparent;
 }
 .gt-post-content h2 {
   font-size: 24px;
+  background: transparent;
 }
 .gt-post-content h3 {
   font-size: 20px;
@@ -535,7 +548,7 @@ ul li {
 }
 .post-list-container .post-inner .post {
   margin: 30px;
-  border-radius: 4px;
+  border-radius: 10px;
   padding: 28px;
   display: flex;
   flex-direction: row;
@@ -584,12 +597,12 @@ ul li {
   transform: scale(1.012);
 }
 .post-list-container .post-inner .post .post-feature-image {
-  width: 200px;
-  height: 100px;
-  flex-basis: 200px;
+  width: 300px;
+  height: 150px;
+  flex-basis: 300px;
   flex-shrink: 0;
   margin-left: 20px;
-  border-radius: 2px;
+  border-radius: 10px;
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -620,6 +633,10 @@ ul li {
     font-size: 17px;
     font-weight: bold;
   }
+  .post-list-container .post-inner .post .post-left .post-title:hover {
+    color: #00A2FF;
+    text-decoration: none;
+  }
   .post-list-container .post-inner .post .post-left .post-abstract {
     margin-top: 10px;
   }
@@ -639,7 +656,7 @@ ul li {
     flex-basis: 0;
     flex-shrink: 0;
     margin-left: 0;
-    border-radius: 2px;
+    border-radius: 10px;
     overflow: hidden;
     background-size: cover;
     background-position: center;
@@ -656,7 +673,7 @@ ul li {
   flex: 1;
   padding: 24px 32px;
   width: 1000px;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 .post-container .post-detail .post-title {
   font-size: 26px;
@@ -807,7 +824,6 @@ ul li {
 }
 .friend-box .flink-info a {
   font-size: 18px;
-  background: linear-gradient(180deg, transparent 75%, rgba(116, 192, 252, 0.4) 0);
   margin-bottom: 10px;
 }
 .friend-box .flink-info .flink-info-desc {
@@ -1823,100 +1839,100 @@ code::-webkit-scrollbar-thumb:hover {
 }
 
         .gt-bg-theme-color-first {
-          background: #f9f9f9!important;
+          background: #F2F2F5!important;
         }
         
         .gt-bg-theme-color-second {
-          background: #f3f3f3!important;
+          background: #FFFFFF!important;
         }
         
         .gt-bg-content-color-first {
-          background: #5e5e5e!important;
+          background: #161618!important;
         }
         
         .gt-bg-content-color-second {
-          background: #BFBFBF!important;
+          background: #5B5A60!important;
         }
         
         .gt-bg-accent-color-first {
-          background: #8b959f!important;
+          background: #00A2FF!important;
         }
         
         .gt-bg-accent-color-second {
-          background: RGBA(139,149,159,0.14)!important;
+          background: RGBA(0,162,255,0.2)!important;
         }
         
         .gt-c-theme-color-first {
-          color: #f9f9f9!important;
+          color: #F2F2F5!important;
         }
         
         .gt-c-theme-color-second {
-          color: #f3f3f3!important;
+          color: #FFFFFF!important;
         }
         
         .gt-c-content-color-first {
-          color: #5e5e5e!important;
+          color: #161618!important;
         }
         
         .gt-c-content-color-second {
-          color: #BFBFBF!important;
+          color: #5B5A60!important;
         }
         
         .gt-c-accent-color-first {
-          color: #8b959f!important;
+          color: #00A2FF!important;
         }
         
         .gt-c-accent-color-second {
-          color: RGBA(139,149,159,0.14)!important;
+          color: RGBA(0,162,255,0.2)!important;
         }
         
         body {
-          color: #5e5e5e!important;
+          color: #161618!important;
         }
         
         a {
-          color: #8b959f!important;
+          color: #00A2FF!important;
         }
         
         .post-content h1 {
           display: inline-block;
-          color: #5e5e5e!important;
+          color: #161618!important;
           position: relative!important;
-          background: linear-gradient(180deg, transparent 75%, RGBA(139,149,159,0.4) 0)!important;
+          background: linear-gradient(180deg, transparent 75%, RGBA(0,162,255,0.4) 0)!important;
         }
         
         .post-content h2 {
           display: inline-block;
-          color: #5e5e5e!important;
+          color: #161618!important;
           position: relative!important;
-          background: linear-gradient(180deg, transparent 75%, RGBA(139,149,159,0.4) 0)!important;
+          background: linear-gradient(180deg, transparent 75%, RGBA(0,162,255,0.4) 0)!important;
         }
         
         .gt-a-link {
-          color: #5e5e5e!important;
+          color: #161618!important;
           position: relative!important;
-          background: linear-gradient(180deg, transparent 75%, RGBA(139,149,159,0.4) 0)!important;
+          background: linear-gradient(180deg, transparent 75%, RGBA(0,162,255,0.4) 0)!important;
         }
         
         .gt-post-content a {
-          color: #8b959f!important;
+          color: #00A2FF!important;
         }
         
         .gt-post-content blockquote {
-          background: RGBA(139,149,159,0.14)!important;
-          border-color: #8b959f!important;
+          background: RGBA(0,162,255,0.2)!important;
+          border-color: #00A2FF!important;
         }
         
         .gt-post-content code {
-          background: RGBA(139,149,159,0.14)!important;
+          background: RGBA(0,162,255,0.2)!important;
         }
         
         input::placeholder {
-          color: #BFBFBF!important;
+          color: #5B5A60!important;
         }
         
         .search-input {
-          color: #5e5e5e!important;
-          background-color: #f3f3f3!important;
+          color: #161618!important;
+          background-color: #FFFFFF!important;
         }
          
