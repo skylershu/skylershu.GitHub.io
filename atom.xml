@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://blog.skylershu.com</id>
+    <id>https://skylershu.github.io</id>
     <title>Skyler Shu</title>
-    <updated>2021-03-21T02:58:55.987Z</updated>
+    <updated>2021-03-21T03:05:20.768Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://blog.skylershu.com"/>
-    <link rel="self" href="https://blog.skylershu.com/atom.xml"/>
+    <link rel="alternate" href="https://skylershu.github.io"/>
+    <link rel="self" href="https://skylershu.github.io/atom.xml"/>
     <subtitle>Keep thinking</subtitle>
-    <logo>https://blog.skylershu.com/images/avatar.png</logo>
-    <icon>https://blog.skylershu.com/favicon.ico</icon>
+    <logo>https://skylershu.github.io/images/avatar.png</logo>
+    <icon>https://skylershu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Skyler Shu</rights>
     <entry>
         <title type="html"><![CDATA[Nobelium 部署指南]]></title>
-        <id>https://blog.skylershu.com/post/how-to-bulid-nobelium/</id>
-        <link href="https://blog.skylershu.com/post/how-to-bulid-nobelium/">
+        <id>https://skylershu.github.io/post/how-to-bulid-nobelium/</id>
+        <link href="https://skylershu.github.io/post/how-to-bulid-nobelium/">
         </link>
         <updated>2021-03-17T03:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>Nobelium 是一个使用 Next.js + Notion 第三方 API 实现的，部署在 Vercel 上的静态博客系统。<br>
@@ -43,12 +43,12 @@
 <p>在 Notion 中 <code>Duplicate</code> 此  <a href="https://www.notion.so/68be9021bca34b8e89f0246f27e608df?v=6f4262c569494be3bf211168b9789081">Notion 模版</a>，并打开 <code>Share to web</code> ，然后 <code>Copy link</code> 保存下来，待会要用。</p>
 <p>例如，我 <code>Copy link</code> 后保存下来的为：</p>
 <p><code>https://www.notion.so/skylershu/f7ac6993a72e413f871b6ce4bb96d603?v=7672ba01dbcc4e188895816f975db6c1</code>，其中 <code>f7ac6993a72e413f871b6ce4bb96d603</code> 为 Page ID。</p>
-<figure data-type="image" tabindex="1"><img src="https://blog.skylershu.com/post-images/1616293475905.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://skylershu.github.io/post-images/1616293475905.png" alt="" loading="lazy"></figure>
 <h3 id="2-在-github-中-fork-此-repository修改以下内容">2. 在 GitHub 中 <code>Fork</code> <a href="https://github.com/craigary/nobelium">此 repository</a>，修改以下内容。</h3>
 <ol>
 <li>修改 <code>blog.config.js</code> 文件。</li>
 </ol>
-<figure data-type="image" tabindex="2"><img src="https://blog.skylershu.com/post-images/1616293493855.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://skylershu.github.io/post-images/1616293493855.png" alt="" loading="lazy"></figure>
 <p>按照注释提示修改引号中的内容，其余保持默认即可。</p>
 <pre><code class="language-jsx">const BLOG = {
   title: 'CRAIGARY', // 标题
@@ -87,23 +87,23 @@ export default BLOG
 <li>修改 <code>/public</code> 文件夹下的头像。</li>
 </ol>
 <p>你可以将图片文件下载后使用 Photoshop 等导出对应大小、格式的图片文件，然后上传回 GitHub。</p>
-<figure data-type="image" tabindex="3"><img src="https://blog.skylershu.com/post-images/1616293508903.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://skylershu.github.io/post-images/1616293508903.png" alt="" loading="lazy"></figure>
 <h3 id="3-部署到-vercel">3. 部署到 Vercel。</h3>
 <p>前往 <a href="http://vercel.com">vercel.com</a> 登录，在 dashboard 点击 <code>New Project</code>，然后 <code>Import Git Repository</code> 从 GitHub 导入。</p>
-<figure data-type="image" tabindex="4"><img src="https://blog.skylershu.com/post-images/1616293522042.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://skylershu.github.io/post-images/1616293522042.png" alt="" loading="lazy"></figure>
 <p><code>Select</code> 自己的账号。</p>
-<figure data-type="image" tabindex="5"><img src="https://blog.skylershu.com/post-images/1616293532387.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://skylershu.github.io/post-images/1616293532387.png" alt="" loading="lazy"></figure>
 <p>这里需要填写环境变量 <code>Environment Variables</code>：</p>
 <ul>
 <li>NAME 填写<code>NOTION_PAGE_ID</code></li>
 <li>VALUE 填写之前获取的 Page ID。</li>
 </ul>
-<figure data-type="image" tabindex="6"><img src="https://blog.skylershu.com/post-images/1616293540952.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://skylershu.github.io/post-images/1616293540952.png" alt="" loading="lazy"></figure>
 <p>点击 <code>Add</code> 后 VALUE 会自动加密，然后点击 <code>Deploy</code> 等待完成即可。当看到以下页面即部署成功。</p>
-<figure data-type="image" tabindex="7"><img src="https://blog.skylershu.com/post-images/1616293548454.gif" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://skylershu.github.io/post-images/1616293548454.gif" alt="" loading="lazy"></figure>
 <h3 id="4-自定义域名">4. 自定义域名</h3>
 <p>如果你有自己的域名的话，可以在 Vercel Project 的 <code>Settings</code> &gt; <code>Domains</code> 添加域名。</p>
-<figure data-type="image" tabindex="8"><img src="https://blog.skylershu.com/post-images/1616293558719.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://skylershu.github.io/post-images/1616293558719.png" alt="" loading="lazy"></figure>
 <p>然后在域名后台添加一条 DNS 记录：</p>
 <ul>
 <li>名称填写 <code>@</code> 或自定义一个二级域名</li>
@@ -115,8 +115,8 @@ export default BLOG
     </entry>
     <entry>
         <title type="html"><![CDATA[关于]]></title>
-        <id>https://blog.skylershu.com/post/about/</id>
-        <link href="https://blog.skylershu.com/post/about/">
+        <id>https://skylershu.github.io/post/about/</id>
+        <link href="https://skylershu.github.io/post/about/">
         </link>
         <updated>2020-11-11T14:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>Hello，我是 Skyler Shu，这是我的 <a href="https://blog.skylershu.com">博客</a>。</p>
