@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://skylershu.github.io</id>
     <title>Skyler Shu</title>
-    <updated>2021-03-21T03:11:28.070Z</updated>
+    <updated>2021-03-21T03:12:17.001Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://skylershu.github.io"/>
     <link rel="self" href="https://skylershu.github.io/atom.xml"/>
@@ -16,9 +16,9 @@
         <link href="https://skylershu.github.io/post/about/">
         </link>
         <updated>2020-11-11T14:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>Hello，我是 Skyler Shu，这是我的 <a href="https://blog.skylershu.com">博客</a>。</p>
+        <summary type="html"><![CDATA[<p>Hello，我是 Skyler Shu，点击前往我的 <a href="https://blog.skylershu.com">博客</a>。</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>Hello，我是 Skyler Shu，这是我的 <a href="https://blog.skylershu.com">博客</a>。</p>
+        <content type="html"><![CDATA[<p>Hello，我是 Skyler Shu，点击前往我的 <a href="https://blog.skylershu.com">博客</a>。</p>
 <!-- more -->
 ]]></content>
     </entry>
